@@ -1,12 +1,6 @@
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import { InputFormProps } from "~/@types/global";
 
-interface TextAreaInputProps {
-  label: string;
-  name: string;
-  register: UseFormRegister<FieldValues>;
-}
-
-export default function NumberInput({ label, name, register } : TextAreaInputProps ) {
+export default function NumberInput({ label, name, register }: InputFormProps) {
   return (
     <div>
       <label

@@ -24,20 +24,17 @@ const SellItem: NextPage = () => {
           <h1 className="text-2xl text-white">
             Here is where you can sell your item
           </h1>
-          {/*
-            TODO: split the following into react components
-          */}
           <form
             className="flex flex-col gap-4"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <TextInput label="Name" register={register} name={"name"} />
+            <TextInput label="Name" name={"name"} register={register} />
             <TextAreaInput
               label="Description"
-              register={register}
               name={"description"}
+              register={register}
             />
-            <NumberInput label="Price" register={register} name={"price"} />
+            <NumberInput label="Price" name={"price"} register={register} />
             <button
               type="submit"
               className="mb-2 mr-2 rounded-full border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"

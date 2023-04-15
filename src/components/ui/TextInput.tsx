@@ -1,12 +1,6 @@
-import { UseFormRegister, FieldValues } from "react-hook-form";
+import { InputFormProps } from "~/@types/global";
 
-interface TextInputProps {
-  label: string;
-  name: string;
-  register: UseFormRegister<FieldValues>;
-}
-
-export default function TextInput({ label, name, register }: TextInputProps) {
+export default function TextInput({ label, name, register }: InputFormProps ) {
   return (
     <div>
       <label
