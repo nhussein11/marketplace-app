@@ -4,6 +4,7 @@ import PageHead from "~/components/PageHead";
 import NumberInput from "~/components/ui/NumberInput";
 import TextAreaInput from "~/components/ui/TextAreaInput";
 import TextInput from "~/components/ui/TextInput";
+import { api } from "~/utils/api";
 
 type SellItemForm = {
   name: string;
@@ -12,8 +13,17 @@ type SellItemForm = {
 };
 
 const SellItem: NextPage = () => {
+  const createListing = api.listings.create.useMutation();
+
   const { register, handleSubmit } = useForm<SellItemForm>();
-  const onSubmit = (formData: SellItemForm) => console.log(formData);
+  const onSubmit = (formData: SellItemForm) => {
+    try {
+      formData.price = Number(formData.price);
+      createListing.mutateAsync(formData);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <>
