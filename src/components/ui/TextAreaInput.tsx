@@ -1,6 +1,10 @@
 import { InputFormProps } from "~/@types/global";
 
-export default function TextAreaInput({ label, name, register }: InputFormProps) {
+export default function TextAreaInput({
+  label,
+  name,
+  register,
+}: InputFormProps) {
   return (
     <div>
       <label
