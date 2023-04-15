@@ -8,7 +8,7 @@ import "~/styles/globals.css";
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <ClerkProvider {...pageProps}>
-      <div className="dark:text-white light:black" >
+      <div className="dark:text-white light:text-black">
         <NavBar />
         <Component {...pageProps} />;
       </div>
