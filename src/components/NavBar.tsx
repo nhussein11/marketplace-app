@@ -5,14 +5,14 @@ export function NavBar() {
   return (
     <nav className="border-gray-200 bg-white dark:bg-gray-900">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-        <a href="https://flowbite.com/" className="flex items-center">
+        <a className="flex items-center">
           <img
-            src="https://flowbite.com/docs/images/logo.svg"
+            src="https://w7.pngwing.com/pngs/990/826/png-transparent-web-development-online-marketplace-computer-icons-e-commerce-world-wide-web-web-design-text-service.png"
             className="mr-3 h-8"
-            alt="Flowbite Logo"
+            alt="Market Place Logo"
           />
           <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-            Flowbite
+            Market Place
           </span>
         </a>
         <button
@@ -48,7 +48,7 @@ export function NavBar() {
                 Home
               </a>
             </li>
-            
+
             <li>
               <Link
                 href="/sell-item"
@@ -60,9 +60,11 @@ export function NavBar() {
             </li>
             <li>
               <SignInButton>
-                <span className="text-white cursor-pointer hover:text-blue-400">Sign in</span>
+                <span className="cursor-pointer text-white hover:text-blue-400">
+                  Sign in
+                </span>
               </SignInButton>
-             </li>
+            </li>
             <li>
               <UserButton />
             </li>
