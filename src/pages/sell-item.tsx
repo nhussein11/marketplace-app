@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import PageHead from "~/components/PageHead";
 import NumberInput from "~/components/ui/NumberInput";
@@ -9,17 +10,22 @@ import { api } from "~/utils/api";
 type SellItemForm = {
   name: string;
   description: string;
-  price: number;
+  price: string;
 };
 
 const SellItem: NextPage = () => {
   const createListing = api.listings.create.useMutation();
+  const router = useRouter();
 
   const { register, handleSubmit } = useForm<SellItemForm>();
   const onSubmit = (formData: SellItemForm) => {
     try {
-      formData.price = Number(formData.price);
-      createListing.mutateAsync(formData);
+      createListing.mutateAsync({
+        ...formData,
+        price: parseFloat(formData.price),
+      }).then(() => {
+        router.push("/");
+      });
     } catch (e) {
       console.log(e);
     }
@@ -32,7 +38,7 @@ const SellItem: NextPage = () => {
       <main className="flex min-h-screen flex-col items-center justify-center bg-gray-700">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-2xl text-white">
-            Here is where you can sell your item
+            Create a new listing to sell your item
           </h1>
           <form
             className="flex flex-col gap-4"
