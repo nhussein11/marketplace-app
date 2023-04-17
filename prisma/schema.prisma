@@ -23,6 +23,7 @@ model Listing {
 
 model Message {
   id           String  @id @default(cuid())
+  message      String
   toUser       String
   fromUser     String
   fromUserName String
