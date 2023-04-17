@@ -18,7 +18,7 @@ model Listing {
   name        String
   description String
   price       Float
-  Message     Message[]
+  message     Message[]
 }
 
 model Message {
