@@ -24,10 +24,8 @@ model Listing {
 model Message {
   id           String  @id @default(cuid())
   message      String
-  toUser       String
   fromUser     String
   fromUserName String
-  toUserName   String
   listingId    String
   listing      Listing @relation(fields: [listingId], references: [id])
 }
