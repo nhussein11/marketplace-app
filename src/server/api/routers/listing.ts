@@ -41,4 +41,24 @@ export const listingsRouter = createTRPCRouter({
 
       return listing;
     }),
-});
+  sendMessage: protectedProcedure
+    .input(
+      z.object({ message: z.string(), listingId: z.string() })
+    )
+    .mutation(async ({ input, ctx }) => {
+      const message = await ctx.prisma.message.create({
+        data: {
+          message: input.message,
+          listingId: input.listingId,
+          fromUser: ctx.auth.userId,
+          fromUserName: ctx.auth.user?.username ?? "Unknown",
+        },
+      });
+
+      if (!message) {
+        throw new Error("Cannot send message!");
+      }
+
+      return message;
+  })
+})
