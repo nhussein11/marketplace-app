@@ -19,3 +19,13 @@ model Listing {
     description   String
     price        Float
 }
+
+model Message {
+    id        String   @id @default(cuid())
+    toUser    String
+    fromUser  String
+    fromUserName String
+    toUserName   String
+    listingId String
+    listing Listing @relation(fields: [listingId], references: [id])
+}
